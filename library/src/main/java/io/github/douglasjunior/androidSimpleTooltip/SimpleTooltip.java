@@ -494,7 +494,7 @@ public class SimpleTooltip implements PopupWindow.OnDismissListener {
     private final ViewTreeObserver.OnGlobalLayoutListener mAutoDismissLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
         @Override
         public void onGlobalLayout() {
-            if (dismissed) {
+            if (dismissed && mPopupWindow != null) {
                 SimpleTooltipUtils.removeOnGlobalLayoutListener(mPopupWindow.getContentView(), this);
                 return;
             }
